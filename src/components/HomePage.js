@@ -22,7 +22,7 @@ function HomePage() {
                     <Icons home>
                         <i className="fab fa-facebook-f"></i>
                         <i className="fab fa-instagram"></i>
-                        <Link to="/contact"><i classe="far fa-envelope"></i></Link>
+                        <Link to="/contact"><i className="far fa-envelope"></i></Link>
                     </Icons>
                 </Home > :
                     <Home>
