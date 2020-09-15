@@ -5,8 +5,11 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: 'Raleway', sans-serif;
+    font-weight: 400;
     color: white;
     outline: none;
+    text-shadow: 1px 1px black;
+    letter-spacing: 1px;
 }
 body{
     min-height: 100vh;
