@@ -89,25 +89,3 @@ export const HomeButton = styled.button`
         background-color: black;
     }
 `
-export const Icons = styled.div`
-    font-size: 20px;
-    margin-bottom: 15px;
-    @media only screen and (min-width: 768px){
-        font-size: 24px;
-    }
-    @media only screen and (min-width: 1024px) and (orientation: landscape){
-        position: fixed;
-        bottom: 3%;
-        right: 0;
-        font-size: 30px;
-        margin-bottom: 0;
-    }
-    i{  
-        margin-right: 20px;
-        cursor: pointer;
-        @media only screen and (min-width: 1024px) and (orientation: landscape){
-            margin-right: 35px;
-        }
-    }
-
-`

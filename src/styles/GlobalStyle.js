@@ -15,7 +15,7 @@ body{
     min-height: 100vh;
     min-height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
-    background-color: #20332d;
+    background-color: ${props => props.theme.colors.mainBackground};
 }
 #root {
   height: 100%;
