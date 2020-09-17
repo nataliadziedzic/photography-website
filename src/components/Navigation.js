@@ -7,10 +7,13 @@ import { Link } from "react-router-dom";
 function Navigation() {
     const showMenu = () => {
         document.querySelector(".wrapper").style.display = "inline-block";
-        // document.querySelectorAll(".stripe").style.display = "inline-block";
+        const stripes = document.querySelectorAll(".stripe")
+        stripes.forEach(stripe => stripe.style.display = "none")
     }
     const hideMenu = () => {
         document.querySelector(".wrapper").style.display = "none";
+        const stripes = document.querySelectorAll(".stripe")
+        stripes.forEach(stripe => stripe.style.display = "block")
     }
     return (
         <Media query="(orientation: landscape)">
@@ -32,11 +35,11 @@ function Navigation() {
                                 </Preview>
                                 <TableOfContent>
                                     <Content>
-                                        <span>Home</span>
-                                        <span>Gallery</span>
-                                        <span>Products</span>
-                                        <span>Courses</span>
-                                        <span>Contact</span>
+                                        <Link to="/"><span onClick={hideMenu}>Home</span></Link>
+                                        <Link to="/gallery"><span onClick={hideMenu}>Gallery</span></Link>
+                                        <Link to="/products"><span onClick={hideMenu}>Products</span></Link>
+                                        <Link to="/courses"><span onClick={hideMenu}>Courses</span></Link>
+                                        <Link to="/contact"><span onClick={hideMenu}>Contact</span></Link>
                                         <Icons >
                                             <i className="fab fa-facebook-f"></i>
                                             <i className="fab fa-instagram"></i>
@@ -60,11 +63,11 @@ function Navigation() {
                                 </MenuBtn>
                                 <TableOfContent>
                                     <Content>
-                                        <span>Home</span>
-                                        <span>Gallery</span>
-                                        <span>Products</span>
-                                        <span>Courses</span>
-                                        <span>Contact</span>
+                                        <Link to="/"><span onClick={hideMenu}>Home</span></Link>
+                                        <Link to="/gallery"><span onClick={hideMenu}>Gallery</span></Link>
+                                        <Link to="/products"><span onClick={hideMenu}>Products</span></Link>
+                                        <Link to="/courses"><span onClick={hideMenu}>Courses</span></Link>
+                                        <Link to="/contact"><span onClick={hideMenu}>Contact</span></Link>
                                         <Icons>
                                             <i className="fab fa-facebook-f"></i>
                                             <i className="fab fa-instagram"></i>
