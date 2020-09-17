@@ -79,10 +79,6 @@ export const HomeButton = styled.button`
     width: 100%;
     height: 45px;
     margin: 10px 0;
-    background-color: transparent;
-    border: 1px solid white;
-    cursor: pointer;
-    font-size: 18px;
     font-weight: 700;
     transition: .4s;
     &:hover{

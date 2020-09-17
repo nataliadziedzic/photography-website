@@ -4,8 +4,8 @@ import photographer from "../assets/img/author.jpg";
 const homeImg = photographer;
 
 export const Menu = styled.div`
-    position: absolute;
-    z-index: 1;
+    position: fixed;
+    z-index: 100;
     height: 100vh;
     width: 100%;
     background-color: ${props => props.theme.colors.mainBackground};
@@ -13,13 +13,11 @@ export const Menu = styled.div`
 `
 export const MenuBtn = styled.button`
     position: fixed;
-    z-index: 2;
+    z-index: 101;
     top: 0;
     right: ${props => props.close ? "100%" : "0"};
     transform: ${props => props.close ? "translateX(200%)" : ""};
     border: none;
-    background-color: transparent;
-    cursor: pointer;
     margin: 35px;
     font-size: 15px;
     letter-spacing: 3px;
@@ -65,9 +63,17 @@ export const Content = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    a{
+      margin: 10px;
+        @media only screen and (min-width: 768px) {
+            margin: 20px;
+        }
+    }
     span{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
         font-size: 30px;
-        margin: 10px;
         &:hover{
             color: ${props => props.theme.colors.fontHover};
             font-style: italic;
@@ -77,7 +83,6 @@ export const Content = styled.div`
         }
         @media only screen and (min-width: 768px) {
             font-size: 35px;
-            margin: 20px;
         }
     }
 `
