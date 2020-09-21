@@ -3,24 +3,24 @@ import { Name } from "../styles/HomePage-style"
 
 export const GalleryWrapper = styled.div`
     min-height: 100vh;
-    overflow-x: hidden;
-    @media only screen and (orientation: landscape){
-        max-height: 100vh;
-        overflow-x: visible;
-        overflow-y: hidden;
-    }
+    overflow: hidden;
 `
 export const ImagesContainer = styled.div`
     display: grid;
     margin-top: 70px;
     align-items: center;
+    transition: .8s ease-out;
     @media only screen and (orientation: landscape){
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         margin-top: 0;
         grid-auto-flow: column;
         grid-template-rows: 50vh 50vh;
         grid-template-columns: repeat(12,50%);
     }
-    }
+    
 `
 export const Image1 = styled.img`
     width: 100%;
@@ -171,9 +171,10 @@ export const Image12 = styled.img`
     grid-row: 12;
     grid-column: 1/3;
     @media only screen and (orientation: landscape){
-        grid-row: 2/3;
+        grid-row: 1/3;
         grid-column: 9/10;
         justify-self: end;
+        align-self: end;
         width: 100%;
         padding-left: 15px;
     }
@@ -187,8 +188,14 @@ export const NameInGallery = styled(Name)`
     margin: 0;
     padding: 0;
     text-align: center;
-    @media only screen and (min-width: 800px){
-        letter-spacing: 7px;
+    @media only screen and (orientation: landscape){
+        letter-spacing: 5px;
+    }
+    @media only screen and (min-width: 768px){
+        letter-spacing: 15px;
+    }
+    @media only screen and (min-width: 1024px){
+        letter-spacing: 20px;
     }
 `
 export const GoUp = styled.button`
@@ -199,6 +206,10 @@ export const GoUp = styled.button`
     position: fixed;
     bottom: 0;
     left: 0;
+    @media only screen and (min-width: 1024px){
+        font-size: 25px;
+    }
+    
 `
 export const ImageBox = styled.div`
     display: none;
@@ -208,7 +219,7 @@ export const ImageBox = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    background-color: grey;
+    background-color: #000000a1;
     @keyframes fadein {
         from { opacity: 0; }
         to   { opacity: 1; }
