@@ -20,28 +20,30 @@ function Gallery() {
     const handleButtonVisibility = () => {
         const btnWrapper = document.querySelector(".btnWrapper");
         const arrow = document.querySelector(".fas")
-        if (window.innerWidth < window.innerHeight) {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                btnWrapper.style.display = "block";
-                btnWrapper.style.left = "0";
-                btnWrapper.style.transform = "translateX(0)";
-                arrow.classList.remove("fa-arrow-left");
-                arrow.classList.add("fa-arrow-up");
+        if (btnWrapper != null) {
+            if (window.innerWidth < window.innerHeight) {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    btnWrapper.style.display = "block";
+                    btnWrapper.style.left = "0";
+                    btnWrapper.style.transform = "translateX(0)";
+                    arrow.classList.remove("fa-arrow-left");
+                    arrow.classList.add("fa-arrow-up");
 
-            } else {
-                btnWrapper.style.display = "none";
-            }
-        }
-        else {
-            if (position < 0) {
-                btnWrapper.style.display = "block";
-                btnWrapper.style.left = "100%";
-                btnWrapper.style.transform = "translateX(-160%)";
-                arrow.classList.remove("fa-arrow-up");
-                arrow.classList.add("fa-arrow-left");
+                } else {
+                    btnWrapper.style.display = "none";
+                }
             }
             else {
-                btnWrapper.style.display = "none";
+                if (position < 0) {
+                    btnWrapper.style.display = "block";
+                    btnWrapper.style.left = "100%";
+                    btnWrapper.style.transform = "translateX(-160%)";
+                    arrow.classList.remove("fa-arrow-up");
+                    arrow.classList.add("fa-arrow-left");
+                }
+                else {
+                    btnWrapper.style.display = "none";
+                }
             }
         }
     }
@@ -120,8 +122,10 @@ function Gallery() {
     }
     const handleResize = () => {
         const div = document.querySelector(".imageBox");
-        if (div.style.display === "block") {
-            adjustImage()
+        if (div != null) {
+            if (div.style.display === "block") {
+                adjustImage()
+            }
         }
     }
     window.addEventListener("orientationchange", handleResize);
@@ -129,29 +133,31 @@ function Gallery() {
 
     const scrollOnSides = (e) => {
         const container = document.querySelector(".container");
-        if (window.innerWidth > window.innerHeight) {
-            if (e.type === "keydown") {
-                if (e.keyCode === 40 || e.keyCode === 39) {
-                    if (position > -355) {
+        if (container != null) {
+            if (window.innerWidth > window.innerHeight) {
+                if (e.type === "keydown") {
+                    if (e.keyCode === 40 || e.keyCode === 39) {
+                        if (position > -355) {
+                            position = position - 5
+                            container.style.left = position + "%"
+                        }
+                    }
+                    else if (e.keyCode === 38 || e.keyCode === 37) {
+                        if (!position <= 0) {
+                            position = position + 5
+                            container.style.left = position + "%"
+                        }
+                    }
+                }
+                else if (e.type === "wheel") {
+                    if (e.deltaY > 0 && position > -355) {
                         position = position - 5
                         container.style.left = position + "%"
                     }
-                }
-                else if (e.keyCode === 38 || e.keyCode === 37) {
-                    if (!position <= 0) {
+                    else if (e.deltaY < 0 && !position <= 0) {
                         position = position + 5
                         container.style.left = position + "%"
                     }
-                }
-            }
-            else if (e.type === "wheel") {
-                if (e.deltaY > 0 && position > -355) {
-                    position = position - 5
-                    container.style.left = position + "%"
-                }
-                else if (e.deltaY < 0 && !position <= 0) {
-                    position = position + 5
-                    container.style.left = position + "%"
                 }
             }
         }
