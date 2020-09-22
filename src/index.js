@@ -9,6 +9,7 @@ const theme = {
   colors: {
     mainBackground: "#20332d",
     fontHover: "#8e6e35",
+    buttonBackground: "#202633",
   }
 }
 

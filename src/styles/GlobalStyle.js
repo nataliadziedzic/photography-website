@@ -32,6 +32,7 @@ body{
     min-height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
     background-color: ${props => props.theme.colors.mainBackground};
+    overflow-x: hidden;
 }
 #root {
   height: 100%;
