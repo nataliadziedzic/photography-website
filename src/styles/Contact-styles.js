@@ -35,9 +35,11 @@ export const Form = styled.form`
     width: 100%;
     height: 50%;
     max-width: 800px;
-    text-align: center; 
-    margin-top: 40px; 
+    text-align: center;
+    margin: 35px auto; 
     overflow: auto; 
+    display: flex;
+    flex-direction: column;
     @media only screen and (orientation: landscape){
         width: 50%;
         height: auto;
@@ -59,6 +61,7 @@ export const Input = styled.input`
 height: 40px;
 min-height: 25px;
 width: 70%;
+margin: 0 auto;
 margin-bottom: 50px;
 background-color: transparent;
 border: none;
@@ -69,6 +72,7 @@ export const Message = styled.textarea`
     height: 40%;
     min-height: 100px;
     width: 70%;
+    margin: 0 auto;
     padding: 10px 20px; 
     background-color: transparent;
     border: none;
@@ -78,10 +82,14 @@ export const Submit = styled.button`
     width: 50%;
     max-width: 200px;
     height: 45px;
-    margin: 35px 20px 20px;
+    padding: 10px 0;
+    margin: 40px auto 0;
     background-color: #711d18;
     border: none;
     border-radius: 12px;
+    @media only screen and (orientation: landscape){
+        width: 60%;
+    }
 `
 export const SideImage = styled.div`
     background: url(${sideImage});
