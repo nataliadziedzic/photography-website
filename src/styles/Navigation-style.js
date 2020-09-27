@@ -1,14 +1,11 @@
 import styled from "styled-components";
-import photographer from "../assets/img/author.jpg";
-
-const homeImg = photographer;
+import { NavLink } from "react-router-dom";
 
 export const Menu = styled.div`
     position: fixed;
     z-index: 100;
     height: 100vh;
     width: 100%;
-    background-color: ${props => props.theme.colors.mainBackground};
     overflow: hidden;
 `
 export const MenuBtn = styled.button`
@@ -38,23 +35,23 @@ export const Stripe = styled.div`
 export const Preview = styled.div`
     grid-column: 1;
     height: 100vh;
-    background-image: url(${homeImg});
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    position: relative;
 `
 export const Image = styled.div`
-    background-image: url(${homeImg});
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    transform: scale(0.65, 0.7);
+    position: absolute;
+    height: 75%;
+    width: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+`
+export const BackgroundContainer = styled.div`
+    background-color: ${props => props.theme.colors.mainBackground};
 `
 export const TableOfContent = styled.div`
     grid-column: 2;
     height: 100vh;
+    background-color: ${props => props.theme.colors.mainBackground};
 `
 export const Content = styled.div`
     height: 100vh;
@@ -83,6 +80,14 @@ export const Content = styled.div`
         }
         @media only screen and (min-width: 768px) {
             font-size: 35px;
+        }
+    }
+`
+export const MyNavLink = styled(NavLink)`
+    &.active{
+        span{
+            font-style: italic;
+            color: ${props => props.theme.colors.fontHover};
         }
     }
 `

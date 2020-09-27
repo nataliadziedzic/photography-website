@@ -1,19 +1,64 @@
-import React from 'react';
-import { MenuBtn, Stripe, Menu, Preview, Image, TableOfContent, Content } from "../styles/Navigation-style";
+import React, { useEffect, useState } from 'react';
+import { MenuBtn, Stripe, Menu, Preview, Image, BackgroundContainer, TableOfContent, Content, MyNavLink } from "../styles/Navigation-style";
 import Media from 'react-media';
-import Icons from "../styles/Icons"
-import { Link } from "react-router-dom";
+import Icons from "../styles/Icons";
+import home from "../assets/img/home.jpg";
+import gallery from "../assets/img/gallery.jpg";
+import products from "../assets/img/products.jpg";
+import courses from "../assets/img/courses.jpg";
+import contact from "../assets/img/contact.jpg";
+import { displayingMenu, hidingMenu, photoSwapping } from '../Animations/NavigationAnimations';
 
 function Navigation() {
+    const [photo, setPhoto] = useState(home)
+    const setDefaultPhoto = () => {
+        const active = document.querySelector(".active").textContent;
+        if (active === "Home") setPhoto(home)
+        else if (active === "Gallery") setPhoto(gallery)
+        else if (active === "Products") setPhoto(products)
+        else if (active === "Courses") setPhoto(courses)
+        else if (active === "Contact") setPhoto(contact)
+    }
+    const swapPhoto = (link) => {
+        photoSwapping()
+        setTimeout(() => {
+            if (link.textContent === "Home") setPhoto(home)
+            else if (link.textContent === "Gallery") setPhoto(gallery)
+            else if (link.textContent === "Products") setPhoto(products)
+            else if (link.textContent === "Courses") setPhoto(courses)
+            else if (link.textContent === "Contact") setPhoto(contact)
+        }, 250)
+    }
+    const handlePhoto = () => {
+        const links = document.querySelectorAll('span');
+        const preview = document.querySelector('#preview');
+        const sidePhoto = document.querySelector('#sidePhoto');
+        if (preview !== null) {
+            setTimeout(() => {
+                preview.style.background = `black url(${photo}) no-repeat scroll center`;
+                preview.style.backgroundSize = "cover";
+                sidePhoto.style.background = `black url(${photo}) no-repeat scroll center`;
+                sidePhoto.style.backgroundSize = "cover";
+            }, 200)
+
+            links.forEach(link => link.addEventListener("mouseover", () => swapPhoto(link)))
+        }
+    }
+    useEffect(handlePhoto);
     const showMenu = () => {
         document.querySelector(".wrapper").style.display = "inline-block";
         const stripes = document.querySelectorAll(".stripe")
-        stripes.forEach(stripe => stripe.style.display = "none")
+        stripes.forEach(stripe => stripe.style.display = "none");
+        setDefaultPhoto()
+        displayingMenu()
     }
     const hideMenu = () => {
-        document.querySelector(".wrapper").style.display = "none";
-        const stripes = document.querySelectorAll(".stripe")
-        stripes.forEach(stripe => stripe.style.display = "block")
+        hidingMenu()
+        const stripes = document.querySelectorAll(".stripe");
+        stripes.forEach(stripe => stripe.style.display = "block");
+        setTimeout(() => {
+            document.querySelector(".wrapper").style.display = "none";
+        }, 1000)
     }
     return (
         <Media query="(orientation: landscape)">
@@ -27,23 +72,25 @@ function Navigation() {
                         </MenuBtn>
                         <div className="wrapper" style={{ height: "100vh", display: "none" }}>
                             <Menu style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-                                <MenuBtn close onClick={hideMenu}>CLOSE
+                                <MenuBtn id="close" close onClick={hideMenu}>CLOSE
                                  <Stripe close />
                                 </MenuBtn>
-                                <Preview>
-                                    <Image />
-                                </Preview>
-                                <TableOfContent>
+                                <BackgroundContainer id="background">
+                                    <Preview id="preview">
+                                        <Image id="sidePhoto" />
+                                    </Preview>
+                                </BackgroundContainer>
+                                <TableOfContent id="content">
                                     <Content>
-                                        <Link to="/"><span onClick={hideMenu}>Home</span></Link>
-                                        <Link to="/gallery"><span onClick={hideMenu}>Gallery</span></Link>
-                                        <Link to="/products"><span onClick={hideMenu}>Products</span></Link>
-                                        <Link to="/courses"><span onClick={hideMenu}>Courses</span></Link>
-                                        <Link to="/contact"><span onClick={hideMenu}>Contact</span></Link>
+                                        <MyNavLink exact to="/"><span onClick={hideMenu}>Home</span></MyNavLink>
+                                        <MyNavLink to="/gallery"><span onClick={hideMenu}>Gallery</span></MyNavLink>
+                                        <MyNavLink to="/products"><span onClick={hideMenu}>Products</span></MyNavLink>
+                                        <MyNavLink to="/courses"><span onClick={hideMenu}>Courses</span></MyNavLink>
+                                        <MyNavLink to="/contact"><span onClick={hideMenu}>Contact</span></MyNavLink>
                                         <Icons >
                                             <i className="fab fa-facebook-f"></i>
                                             <i className="fab fa-instagram"></i>
-                                            <Link to="/contact"><i className="far fa-envelope"></i></Link>
+                                            <MyNavLink style={{ margin: 0 }} to="/contact"><i className="far fa-envelope"></i></MyNavLink>
                                         </Icons>
                                     </Content>
                                 </TableOfContent>
@@ -63,15 +110,15 @@ function Navigation() {
                                 </MenuBtn>
                                 <TableOfContent>
                                     <Content>
-                                        <Link to="/"><span onClick={hideMenu}>Home</span></Link>
-                                        <Link to="/gallery"><span onClick={hideMenu}>Gallery</span></Link>
-                                        <Link to="/products"><span onClick={hideMenu}>Products</span></Link>
-                                        <Link to="/courses"><span onClick={hideMenu}>Courses</span></Link>
-                                        <Link to="/contact"><span onClick={hideMenu}>Contact</span></Link>
+                                        <MyNavLink to="/"><span onClick={hideMenu}>Home</span></MyNavLink>
+                                        <MyNavLink to="/gallery"><span onClick={hideMenu}>Gallery</span></MyNavLink>
+                                        <MyNavLink to="/products"><span onClick={hideMenu}>Products</span></MyNavLink>
+                                        <MyNavLink to="/courses"><span onClick={hideMenu}>Courses</span></MyNavLink>
+                                        <MyNavLink to="/contact"><span onClick={hideMenu}>Contact</span></MyNavLink>
                                         <Icons>
                                             <i className="fab fa-facebook-f"></i>
                                             <i className="fab fa-instagram"></i>
-                                            <Link to="/contact"><i className="far fa-envelope"></i></Link>
+                                            <MyNavLink style={{ margin: 0 }} to="/contact"><i className="far fa-envelope"></i></MyNavLink>
                                         </Icons>
                                     </Content>
                                 </TableOfContent>
