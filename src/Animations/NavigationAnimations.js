@@ -22,4 +22,6 @@ export const hidingMenu = () => {
     tl.to("#content", { yPercent: -100 })
         .to("#background", { yPercent: -100 })
         .to("#close", { opacity: 0 }, "-=.5")
+        .to("#menu", { opacity: 1, scale: 1, ease: "back" })
+
 }
