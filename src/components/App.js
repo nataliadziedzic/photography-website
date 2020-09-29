@@ -5,6 +5,7 @@ import Products from "./Products";
 import Courses from "./Courses";
 import Gallery from "./Gallery";
 import Contact from "./Contact";
+import ScrollToTop from "./ScrollToTop";
 
 function App() {
   useEffect(() => {
@@ -22,6 +23,7 @@ function App() {
   })
   return (
     <Router basename="/">
+      <ScrollToTop />
       <Route path="/" exact render={() => <HomePage />} />
       <Route path="/products" exact render={() => <Products />} />
       <Route path="/courses" exact render={() => <Courses />} />
