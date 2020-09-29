@@ -2,7 +2,7 @@ import React from 'react';
 import Navigation from "./Navigation";
 import { MenuBtn as Close, Stripe } from "../styles/Navigation-style";
 import { GalleryWrapper as Wrapper, ImagesContainer, NameInGallery, GoUp, ImageBox, Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8, Image9, Image10, Image11, Image12 } from "../styles/Gallery-styles";
-import hamburg from "../assets/img/hamburg-dark.jpg";
+import japan from "../assets/img/japan.jpg";
 import mother from "../assets/img/baby-mother.jpg";
 import berlin from "../assets/img/berlin.jpg";
 import parachute from "../assets/img/parachute-sky.jpg";
@@ -13,7 +13,6 @@ import factory from "../assets/img/factory.jpg";
 import camera from "../assets/img/camera-person.jpg";
 import puppy from "../assets/img/puppy.jpg";
 import girls from "../assets/img/girls.jpg";
-import guitarist from "../assets/img/guitarist.jpg";
 
 function Gallery() {
     let position = 0
@@ -168,7 +167,7 @@ function Gallery() {
         <Wrapper>
             <Navigation />
             <ImagesContainer className="container">
-                <Image1 src={hamburg} alt="hamburg" onClick={() => showImage(hamburg)} />
+                <Image1 src={japan} alt="hamburg" onClick={() => showImage(japan)} />
                 <Image2 src={mother} alt="mother" onClick={() => showImage(mother)} />
                 <Image3 src={berlin} alt="berlin" onClick={() => showImage(berlin)} />
                 <Image4 src={parachute} alt="parachute" onClick={() => showImage(parachute)} />
@@ -179,7 +178,6 @@ function Gallery() {
                 <Image9 src={camera} alt="camera" onClick={() => showImage(camera)} />
                 <Image10 src={puppy} alt="puppy" onClick={() => showImage(puppy)} />
                 <Image11 src={girls} alt="girls" onClick={() => showImage(girls)} />
-                <Image12 src={guitarist} alt="guitarist" onClick={() => showImage(guitarist)} />
             </ImagesContainer>
             <NameInGallery>Yasin Clements</NameInGallery>
             <GoUp className="btnWrapper" onClick={backToStart}><i className="fas fa-arrow-up"></i></GoUp>

@@ -1,9 +1,11 @@
 import styled from "styled-components";
-import { Name } from "../styles/HomePage-style"
+import { Name } from "../styles/HomePage-style";
+import gallery from "../assets/img/background-gallery.jpg";
 
 export const GalleryWrapper = styled.div`
     min-height: 100vh;
     overflow: hidden;
+    background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url(${gallery});
 `
 export const ImagesContainer = styled.div`
     display: grid;
@@ -143,11 +145,10 @@ export const Image10 = styled.img`
     grid-row: 10;
     grid-column: 2;
     @media only screen and (orientation: landscape){
-        grid-row: 2;
-        grid-column: 7/8;
+        grid-row: 1/3;
+        grid-column: 8/9;
         justify-self: end;
-        width: 70%;
-        margin-right: -100px;
+        width: 90%;
     }
 `
 export const Image11 = styled.img`
@@ -156,27 +157,12 @@ export const Image11 = styled.img`
     grid-column: 1;
     @media only screen and (orientation: landscape){
         grid-row: 1/3;
-        grid-column: 8/9;
+        grid-column: 9/10;
         justify-self: end;
         width: 60%;
     }
     @media only screen and (orientation: landscape) and (min-width: 1024px){
         margin-right: 50px;
-    }
-`
-export const Image12 = styled.img`
-    width: 80%;
-    justify-self: center;
-    padding: 25px 0;
-    grid-row: 12;
-    grid-column: 1/3;
-    @media only screen and (orientation: landscape){
-        grid-row: 1/3;
-        grid-column: 9/10;
-        justify-self: end;
-        align-self: end;
-        width: 100%;
-        padding-left: 15px;
     }
 `
 export const NameInGallery = styled(Name)`
