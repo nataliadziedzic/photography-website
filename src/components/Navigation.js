@@ -110,7 +110,7 @@ function Navigation() {
                                 </MenuBtn>
                                 <TableOfContent>
                                     <Content>
-                                        <MyNavLink to="/"><span onClick={hideMenu}>Home</span></MyNavLink>
+                                        <MyNavLink exact to="/"><span onClick={hideMenu}>Home</span></MyNavLink>
                                         <MyNavLink to="/gallery"><span onClick={hideMenu}>Gallery</span></MyNavLink>
                                         <MyNavLink to="/products"><span onClick={hideMenu}>Products</span></MyNavLink>
                                         <MyNavLink to="/courses"><span onClick={hideMenu}>Courses</span></MyNavLink>
