@@ -46,6 +46,7 @@ function Navigation() {
     }
     useEffect(handlePhoto);
     const showMenu = () => {
+        document.body.style.overflow = "hidden";
         document.querySelector(".wrapper").style.display = "inline-block";
         const stripes = document.querySelectorAll(".stripe")
         stripes.forEach(stripe => stripe.style.display = "none");
@@ -54,6 +55,8 @@ function Navigation() {
     }
     const hideMenu = () => {
         hidingMenu()
+        document.body.style.overflow = "auto"
+        document.body.style.overflowX = "hidden"
         const stripes = document.querySelectorAll(".stripe");
         stripes.forEach(stripe => stripe.style.display = "block");
         setTimeout(() => {
