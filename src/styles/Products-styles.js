@@ -2,6 +2,13 @@ import styled from "styled-components";
 import courses from "../assets/img/courses-top-picture.jpg";
 
 export const ProductsWrapper = styled.div`
+        margin-top: 100px;
+        @media only screen and (orientation: landscape){
+            margin-top: 200px;
+        }
+        @media only screen and (orientation: landscape) and (min-width: 1200px){
+            margin-top: 250px;
+        }
         @media only screen and (min-width: 1200px){
         display: grid;
         grid-template-columns: 20% 1fr;
@@ -9,6 +16,9 @@ export const ProductsWrapper = styled.div`
         }
 `
 export const Icon = styled.img`
+    position: absolute;
+    top:0;
+    left: 0;
     width: 50%;
     @media only screen and (orientation: landscape) {
         width: 30%;
