@@ -11,7 +11,8 @@ export const photoSwapping = () => {
 export const displayingMenu = () => {
     const tl = gsap.timeline()
     tl.fromTo("#background", { yPercent: -100 }, { yPercent: 0, delay: .3 })
-        .fromTo("#content", { yPercent: -100 }, { yPercent: 0 })
+        .fromTo("#menu", { opacity: 1, scale: 1, ease: "back" }, { opacity: 0, scale: 0 })
+        .fromTo("#content", { yPercent: -100 }, { yPercent: 0 }, "-=.5")
         .fromTo("#close", { opacity: 0, scale: 0, ease: "back" }, { opacity: 1, scale: 1.4 })
         .to("#close", { scale: 1 })
 }

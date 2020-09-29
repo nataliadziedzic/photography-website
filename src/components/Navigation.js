@@ -65,7 +65,7 @@ function Navigation() {
             {matches => (
                 matches ?
                     <>
-                        <MenuBtn onClick={showMenu}>
+                        <MenuBtn id="menu" onClick={showMenu}>
                             MENU
                             <Stripe className="stripe" />
                             <Stripe className="stripe" />
