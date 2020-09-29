@@ -1,7 +1,7 @@
 import React from 'react';
 import Navigation from "./Navigation";
 import { MenuBtn as Close, Stripe } from "../styles/Navigation-style";
-import { GalleryWrapper as Wrapper, ImagesContainer, NameInGallery, GoUp, ImageBox, Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8, Image9, Image10, Image11, Image12 } from "../styles/Gallery-styles";
+import { GalleryWrapper as Wrapper, ImagesContainer, NameInGallery, GoUp, ImageBox, Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8, Image9, Image10, Image11 } from "../styles/Gallery-styles";
 import japan from "../assets/img/japan.jpg";
 import mother from "../assets/img/baby-mother.jpg";
 import berlin from "../assets/img/berlin.jpg";
